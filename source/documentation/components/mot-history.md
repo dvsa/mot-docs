@@ -9,3 +9,4 @@ Mot History Frontend enables citizens to query MOT database for vehicle MOT hist
 
 ### MOT History API
 MOT History API queries MOT read replica instance to fetch MOT history of a given vehicle. It is implemented using DropWizard and runs as an EC2 instance.
+
