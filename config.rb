@@ -44,12 +44,15 @@ activate :syntax
 # Helpers
 ###
 
+set :relative_links, true
+
 helpers do
   require 'table_of_contents/helpers'
   include TableOfContents::Helpers
 end
 
 configure :build do
+  activate :relative_assets
   activate :minify_css
   activate :minify_javascript
 end
