@@ -3,11 +3,11 @@
 ## Agile Development
 In keeping with Agile best practices, we use Scrum ceremonies with 2 week sprints and Kanban boards to provide transparency on the team’s progress throughout development. Fundamental to our approach to delivery is creating an open and collaborative culture where there is shared team responsibility for delivering high quality outputs and a focus on continuous improvement. This culture is reinforced through joint sessions including:
 	
-•	Epic discoveries
-•	Sprint planning
-•	Daily stand-ups 
-•	Sprint reviews (‘show & tell’)
-•	Sprint retrospectives
+*	Epic discoveries
+*	Sprint planning
+*	Daily stand-ups 
+*	Sprint reviews (‘show & tell’)
+*	Sprint retrospectives
 
 
 ## Open Source
