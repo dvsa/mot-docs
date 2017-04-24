@@ -4,4 +4,4 @@ This is the main front end to the MTS system.  It is a PHP application running i
 
 The PHP code is the oldest in the codebase and is progressively being re-engineered into other technologies.
 
-In production there are 16 instances of this service running which has been tested to handle up to 30,000 concurrent connections.
+In production there are 12 instances of this service running which has been tested to handle up to 30,000 concurrent connections.

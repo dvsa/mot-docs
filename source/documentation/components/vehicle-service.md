@@ -4,4 +4,4 @@ Vehicle service is a private MTS service used for fetching and manipulating vehi
 
 Vehicle service uses authorisation service for permission checking. 
 
-It is implemented using DropWizard and runs as an EC2 instance.
+It is implemented using DropWizard and runs as an EC2 instance. In production there are 3 instances of this service running.

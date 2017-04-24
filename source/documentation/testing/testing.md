@@ -1,8 +1,10 @@
 # Testing
 
-The first activity that happens before the sprint starts is to create manual test cases for the stories coming into the sprint. Not all of the stories requires written test cases, for example, layout changes, simple stories with well defined acceptance criteria and some of the defects won’t require test cases. These test cases can be in the form of actual test cases or mind maps depending on the team's preferences. That usually happens prior to the sprint start or sprint planning at the latest. Scope of the test cases contains both negative and positive scenarios. Besides the obvious scenarios they aim to cover all edge cases identified after analysis during the grooming sessions and investigation performed by Quality Assistance.  These test cases or mind maps are then attached to the particular stories in jira.
+The first activity that happens before the sprint starts is to create manual test cases for the stories coming into the sprint. Not all of the stories requires written test cases, for example, layout changes, simple stories with well defined acceptance criteria and some of the defects won’t require test cases. These test cases can be in the form of actual test cases or mind maps depending on the team's preferences. That usually happens prior to the sprint start or sprint planning at the
+latest. Scope of the test cases contains both negative and positive scenarios. Besides the obvious scenarios they aim to cover all edge cases identified after analysis during the grooming sessions and investigation performed by Quality Assistance.  These test cases or mind maps are then attached to the particular stories in [Jira](https://www.atlassian.com/software/jira).
  
 During the sprint the following QA activities take place: 
+
 * Manual testing
 * Automated testing
 * Non functional testing
@@ -11,7 +13,7 @@ During the sprint the following QA activities take place:
 ## Manual tests
 As the developers work on the tickets they will run the manual test cases that have been created during sprint planning.  The test cases are being run first by developers to make sure that the story is ready for testing, and then by QA but with much wider scope including areas that may be affected by the changes but are not directly related to the feature. Developers use test cases also as guidance when programming the solution to assure edge scenarios are incorporated whilst also making sure the code meets the quality conditions. Can be used as for automation tests suite template as well.
 
-In addition to the script based testing exploratory ad-hoc testing performed mostly by QA, which does not follow the common paths and scenarios. It goes beyond the feature under test and verifies the related functionality. When performing exploratory testing, the QA constantly should ask himself - what can go wrong? What may cause unwanted application's behaviour? Exploratory tests are performed on the Feature Build environment, where the production like synthetic data set is present and it takes place and happens after scenario based testing is complete.
+In addition to the script based testing exploratory ad-hoc testing performed mostly by QA, which does not follow the common paths and scenarios. It goes beyond the feature under test and verifies the related functionality. When performing exploratory testing, the QA constantly should ask himself - what can go wrong? What may cause unwanted application's behaviour? Exploratory tests are performed on the Feature Build Environment, where the production like synthetic data set is present and it takes place and happens after scenario based testing is complete.
  
 ## Automated tests
  
