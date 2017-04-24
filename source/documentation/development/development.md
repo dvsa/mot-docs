@@ -21,7 +21,7 @@ Currently, we are regularly publishing the core MOT repo to GitHub but we are no
 
 Each Developer (and Tester) has a local environment where they can run the full MTS stack, this is acheived by using Vagrant images hosted in Virtual box on OSX based computers.
 
-The codebase is mapped into the Vagrant images so that the developer can modify the code on their local machines and the changes will be automatically reflected in teh Vagrant image.  This also means that the developers can perform remote debugging into the Vagrant images.
+The codebase is mapped into the Vagrant images so that the developer can modify the code on their local machines and the changes will be automatically reflected in the Vagrant image.  This also means that the developers can perform remote debugging into the Vagrant images.
 
 The developers predominantly use Jetbrains products for IDEs, IntelliJ for the Java based components and PHPStorm for the PHP ones.
 
