@@ -6,12 +6,12 @@ This is an up-to-date living document set for the MTS, broadly covering all tech
 
 > There are a number of other technical documents for MTS that are out of date by between 1 and 5 years. In some cases, the team did not know of these documents; in other cases there was not the impetus to invest in updating them.
 
-The key areas coverered in this documentation set are:
+The key areas covered in this documentation set are:
 
 * **Technologies** Technologies used within the MTS
 * **Components** The key components of the MTS
 * **Development** MTS software development concepts
 * **Infrastructure** The deployment infrastructure
-* **CI/CD** Continuous Integeration / Continuous Deployment
+* **CI/CD** Continuous Integration / Continuous Deployment
 * **Testing** The various testing techniques and tools used
 * **Security** The security implications of the MTS
