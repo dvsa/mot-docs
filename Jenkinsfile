@@ -12,8 +12,6 @@ node ('builder') {
    stage 'Middleman build'
    sh 'middleman build --verbose'
    
-   if ("${env.BRANCH_NAME}" == "master") {
-      stage 'Publish'
-      publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build', reportFiles: 'index.html', reportName: 'Mot docs' ])
-   }
+   stage 'Publish'
+   publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build', reportFiles: 'index.html', reportName: 'Mot docs' ])
 }
