@@ -3,6 +3,7 @@ node ('builder') {
    git url: 'https://github.com/dvsa/mot-docs.git'
 
    stage 'Install dependencies'
+   sh ''' echo "gem 'therubyracer'" >> Gemfile'''
    sh 'sudo gem install bundler'
    
    stage 'Bundle install'
