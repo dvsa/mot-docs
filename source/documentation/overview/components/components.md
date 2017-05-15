@@ -8,7 +8,7 @@ The majority of the MTS is made up of 2 large PHP applications, [PHP-FE](#php-fe
 
 Some of the PHP functionality has been extracted into Java services, for [TEST](#test-service)s, [VEHICLE](#vehicle-service)s and [AUTHORISATION](#authorisation-service).
 
-[Elasticache](elasticache.md) is used to cache user sessions. 
+[Elasticache](elasticache.md) is used to cache user sessions.
 
 User persistence, authentication and session management is handled by [OpenAM and OpenDJ](#openam-opendj).
 

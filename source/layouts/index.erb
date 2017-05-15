@@ -1,0 +1,21 @@
+<%
+wrap_layout :core do
+  html = yield
+
+  content_for(:toc_module, "in-page-navigation")
+
+  content_for :sidebar do
+    "<h2>Table of contents</h2>
+    <ol>
+    <li><a href='documentation/overview'>Overview</a></li>
+    <li><a href='documentation/application'>Application</a></li>
+    <li><a href='documentation/pipeline'>Pipeline</a></li>
+    <li><a href='documentation/architecture'>Architecture</a></li>
+    <li><a href='documentation/infrastructure'>Infrastructure</a></li>
+    <li><a href='documentation/links'>Links</a></li>
+    </ol>"
+  end
+
+  html
+end
+%>

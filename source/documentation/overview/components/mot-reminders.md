@@ -13,4 +13,3 @@ MOTR is integrated with two 3rd party services:
 
 1. GOV.UK Notify to notify subscribers using email and potentially text messages in the future.
 1. MOTH Trade API to retrieve information about vehicle tests and their expiry dates.
-
