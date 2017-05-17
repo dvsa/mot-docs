@@ -2,7 +2,7 @@
 
 Mot Intelligence enables users of the public to submit anonymous intelligence about MOT tests.
 
-![Locical architecture](/images/documentation/moti-logical.png)
+![Locical architecture](images/moti-logical.png)
 
 ### MOT Intelligence Frontend
 Mot Intelligence Frontend enables citizens to submit intelligence via web forms. It saves each submission in an S3 bucket. It is implemented using DropWizard and runs as an EC2 instance.

@@ -1,6 +1,6 @@
 # Technical Overview
 
-The key areas covered in this documentation set are:
+The key areas covered in this overview are:
 
 * **Technologies** Technologies used within the MTS
 * **Components** The key components of the MTS

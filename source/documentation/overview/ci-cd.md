@@ -6,9 +6,6 @@ Both application and infrastructure code is part of the CI process. MTS utilizes
 
 [Jenkins](https://jenkins.io/) is the CI / CD tool used to build the MTS delivery pipelines. It utilizes the pipeline extension to build the delivery pipelines using groovy. CI for the majority of the MOT stack works in the following way:
 
-![CI diagram](/images/documentation/mts-pipeline.png)
+![CI diagram](images/mts-pipeline.png)
 
-This pipeline approach allows builds to fail fast in case of problems, and the feedback loop duration is relatively short. It is worth pointing out that components are rebuilt only when a change was applied to it. If a component is not changed during developemnt of a feature a default artefact (build from master branch) will be used.
-
-
-
+This pipeline approach allows builds to fail fast in case of problems, and the feedback loop duration is relatively short. It is worth pointing out that components are rebuilt only when a change was applied to it. If a component is not changed during development of a feature a default artefact (build from master branch) will be used.

@@ -2,7 +2,7 @@
 
 The major components of the MTS deployment environment are shown in the diagram below.  The text includes links to further detailed descriptions of each of the components.  The shaded area are the components that make up the blue/green stack, each of these stacks can be deployed and tested in isolation to reduce the amount of downtime required for a release.  
 
-![Component Diagram](/images/documentation/MTS-Network.png)
+![Component Diagram](images/MTS-Network.png)
 
 The majority of the MTS is made up of 2 large PHP applications, [PHP-FE](#php-fe) and [PHP-API](#php-api).  These handle the web front end tier and the MTS business logic respectively.
 
@@ -87,7 +87,7 @@ The MI Reporting database replicates from the MOT read-replica database.
 
 This is depicted in the diagram below:
 
-![Database Diagram](/images/documentation/MTS-Database-Replication.png)
+![Database Diagram](images/MTS-Database-Replication.png)
 
 All of these database instances have a storage footprint of 1500GB (roughly 1.5TB). MOTH, though it occupies the same footprint, does not hold all the data that the other instances hold as it uses the MariaDB (and MySQL) 'Blackhole' storage engine for most of the MOT replica tables in order that they store no data at all.
 
@@ -98,7 +98,7 @@ The purpose of this storage engine, in this context, is to allow the MOT databas
 
 Mot History enables users of the public to query vehicle mot history using vehicle's make and registration number.
 
-![Locical architecture](/images/documentation/moth-logical.png)
+![Logical architecture](images/moth-logical.png)
 
 ### MOT History Frontend
 Mot History Frontend enables citizens to query MOT database for vehicle MOT history. It is implemented using Zend framework and runs as an EC2 instance.
@@ -123,12 +123,13 @@ MOTR is integrated with two 3rd party services:
 1. GOV.UK Notify to notify subscribers using email and potentially text messages in the future.
 1. MOTH Trade API to retrieve information about vehicle tests and their expiry dates.
 
+![Logical architecture](images/motr-logical.jpg)
 
 ## MOT Intelligence
 
 Mot Intelligence enables users of the public to submit anonymous intelligence about MOT tests.
 
-![Locical architecture](/images/documentation/moti-logical.png)
+![Logical architecture](images/moti-logical.png)
 
 ### MOT Intelligence Frontend
 Mot Intelligence Frontend enables citizens to submit intelligence via web forms. It saves each submission in an S3 bucket. It is implemented using DropWizard and runs as an EC2 instance.
