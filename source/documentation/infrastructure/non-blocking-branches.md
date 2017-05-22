@@ -24,7 +24,7 @@ Once Support 3.9 is live and stable, Support 3.9 will be merged back into Master
 
 ## Benefit
 
-Adopting this approach for large changes means that the new change does not block the delivery pipeline. Whilstever Master has not been merged, the pipeline is free
+Adopting this approach for large changes means that the new change does not block the delivery pipeline. As long as Master has not been merged, the pipeline is free
 
 ## Drawback
 
