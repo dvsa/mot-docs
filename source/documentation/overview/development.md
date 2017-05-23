@@ -2,10 +2,10 @@
 
 ## Agile Development
 In keeping with Agile best practices, we use Scrum ceremonies with 2 week sprints and Kanban boards to provide transparency on the team’s progress throughout development. Fundamental to our approach to delivery is creating an open and collaborative culture where there is shared team responsibility for delivering high quality outputs and a focus on continuous improvement. This culture is reinforced through joint sessions including:
-	
+
 *	Epic discoveries
 *	Sprint planning
-*	Daily stand-ups 
+*	Daily stand-ups
 *	Sprint reviews (‘show & tell’)
 *	Sprint retrospectives
 
@@ -19,12 +19,10 @@ Currently, we are regularly publishing the core MOT repo to GitHub but we are no
 
 ## Development Environment
 
-Each Developer (and Tester) has a local environment where they can run the full MTS stack, this is acheived by using Vagrant images hosted in Virtual box on OSX based computers.
+Each Developer (and Tester) has a local environment where they can run the full MTS stack, this is achieved by using Vagrant images hosted in Virtual box on OSX based computers.
 
 The codebase is mapped into the Vagrant images so that the developer can modify the code on their local machines and the changes will be automatically reflected in the Vagrant image.  This also means that the developers can perform remote debugging into the Vagrant images.
 
 The developers predominantly use Jetbrains products for IDEs, IntelliJ for the Java based components and PHPStorm for the PHP ones.
 
 Typically the developers will run the unit tests and a subset of the integration tests on their local environments, the rest of the tests are automatically executed in the Feature Build environments when the branch is committed to.  This is a much faster-feedback approach (around 30 minutes) than running everything locally which can take upwards of 2.5 hours.
-
-

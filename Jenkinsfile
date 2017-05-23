@@ -1,6 +1,6 @@
 node ('builder') {
    stage 'Checkout'
-   git url: 'https://github.com/dvsa/mot-docs.git'
+   git url: 'https://github.com/dvsa/mot-docs.git', branch: env.BRANCH_NAME
 
    stage 'Install dependencies'
    sh ''' echo "gem 'therubyracer'" >> Gemfile'''

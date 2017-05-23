@@ -2,7 +2,7 @@
 
 The major components of the MTS deployment environment are shown in the diagram below.  The text includes links to further detailed descriptions of each of the components.  The shaded area are the components that make up the blue/green stack, each of these stacks can be deployed and tested in isolation to reduce the amount of downtime required for a release.  
 
-![Component Diagram](/images/documentation/MTS-Network.png)
+![Component Diagram](images/MTS-Network.png)
 
 The majority of the MTS is made up of 2 large PHP applications, [PHP-FE](#php-fe) and [PHP-API](#php-api).  These handle the web front end tier and the MTS business logic respectively.
 
