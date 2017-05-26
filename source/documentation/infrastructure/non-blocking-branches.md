@@ -1,6 +1,6 @@
-# Non Blocking Branching Strategy
+### Non Blocking Branching Strategy
 
-## Background
+#### Background
 
 Currently we have a fairly well established branching strategy, as depicted in the image below.
 
@@ -10,7 +10,7 @@ Feature branches are created from the Master branch and merged back into Master,
 
 The support branch is used to create the deployable artefacts and remains until such a point where it is no longer needed to provide a hotfix. This means the next sprint can commence on master, in readiness for the next code cut.
 
-## Big Changes
+#### Big Changes
 
 Whilst the approach above is more than adequate for most features. There is a need sometimes to adopt a slightly different branching mechanism, to cater for fundamental changes to the application architecture. The example used here is PHP7, but equally could be any significant change
 
@@ -22,14 +22,14 @@ The proposition is that when Support 3.7 is created, we also create Support 3.8.
 
 Once Support 3.8 is live and stable, Support 3.8 will be merged back into Master, so that normal branching can resume. Doing this with with Support 3.8 means the usual Feature and Master branching strategy can remain in place.
 
-## Benefit
+#### Benefit
 
 Adopting this approach for large changes means that the new change does not block the delivery pipeline. As long as Master has not been merged, the pipeline is free
 
-## Drawback
+#### Drawback
 
 It is storing up a merge conflict, post the release. Whilst not ideal, this is preferable to blocking the pipeline
 
-## Cautionary Tales
+#### Cautionary Tales
 
 For the vast majority of feature based changes, there will be no need to merge them into Support 3.8. Puppet and Hiera changes are slightly different however. Any puppet and hiera changes during that period which are merged into master and deployed into production, will also need to be cherry-picked into Support-3.8. The cherry pick should be merged only by the Technical Lead of the Support 3.8 branch. This prevents any configuration regression occurring in the interim period.
