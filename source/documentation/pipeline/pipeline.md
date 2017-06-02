@@ -38,4 +38,17 @@ The thrust of the new pipeline is not to necessarily remove steps, as Acceptance
 Merging into the 'develop' branch is the trigger for that code to make its way into production. It should only be merged into 'develop' once functional and non-functional testing has been successfully executed. The full flow is defined below.
 
 ![pipeline_target](images/pipeline_proposed.png)
+(Include CAB)
+
+Whilst this is a relatively long winded process diagram, the green boxes are assumed to be automated. There should be minimal manual intervention.
+
+## Transition to the New Pipeline
+
+Comparing the two flow diagrams side by side, demonstrates that there is a significant distance to travel to achieve our targetted deployment pipeline. The intention of this section is to identify at a high level the necessary steps to achieve this.
+
+The underpinning pre-requisite to achieve all this is a consistent environment, yet this needs to be delivered in a backdrop of running a live service and delivering new features for that service.
+
+Therefore, this is going to require a forked pipeline to exist at least in the interim period, until Production is built from a single source of truth.
+
+
 
