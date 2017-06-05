@@ -1,8 +1,8 @@
 ## Introduction
 
-The objective of this document is to cover the transition from the existing means of software delivery to a more of a Continuous Delivery Approach. The ultimate objective is to have a pipeline capable of supporting daily releases
+The objective of this document is to cover the transition from the existing means of software delivery to more of a Continuous Delivery Approach. The ultimate objective is to have a pipeline capable of supporting daily releases.
 
-Before describing the proposed end strategy, it is worth detailing the existing pipeline. Identifying its areas of weakness and how best to transition to the target state. 
+Before describing the proposed strategy, it is worth detailing the existing pipeline. Identifying its areas of weakness and how best to transition to the target state. 
 
 ## Existing Pipeline
 
@@ -14,7 +14,7 @@ The process is quite involved and verbose. The steps highlighted in Green are au
 
 ## Consistent Environments
 
-The reasoning behind such an involved promotion process stems from the fear of inconsistencies between those environments. Historically there have been a number of occassions where problems experienced in one environment can not be replicated in others. Over time, that erodes confidence in the process and when a process finally works, then it becomes doctrine. 
+The reasoning behind such an involved promotion process stems from the fear of inconsistencies between those environments. Historically there have been a number of occassions where problems experienced in one environment could not be replicated in others. Over time, this erodes confidence and when a process finally works, then it becomes doctrine. 
 
 Currently there are designated environments (Continuous Integration, Non Functional Testing, Acceptance, Pre Production and Production ). They all hold a dear position in our hearts and have become family pets. Treating an environment in this way promotes the current process. To break this cycle, environments need to be treated more like cattle. 
 
@@ -35,12 +35,11 @@ It was stated at the outset that it should be possible to deliver software into 
 
 The thrust of the new pipeline is not to necessarily remove steps, as Acceptance, Non Functional Testing, Deployment Testing are valid tests. The intention here is to provide an automated way of executing these stages and a means to execute them a lot earlier in the process. 
 
-Merging into the 'develop' branch is the trigger for that code to make its way into production. It should only be merged into 'develop' once functional and non-functional testing has been successfully executed. The full flow is defined below.
+An adpatation of the existing merging strategy is to move more towards the Gitflow(https://datasift.github.io/gitflow/IntroducingGitFlow.html) Merging into the 'develop' branch is the trigger for that code to make its way into production. It should only be merged into 'develop' once functional and non-functional testing has been successfully executed. The full flow is defined below.
 
 ![pipeline_target](images/pipeline_proposed.png)
-(Include CAB)
 
-Whilst this is a relatively long winded process diagram, the green boxes are assumed to be automated. There should be minimal manual intervention.
+Whilst this is a relatively long winded process diagram, the green boxes are assumed to be automated. There should be minimal manual intervention. Redudcing the manual input would allow the automated testing to complete during the day, a final Performance Soak Test to be performed overnight and then appear in Production the next day after sign off.
 
 ## Transition to the New Pipeline
 
@@ -73,5 +72,5 @@ Up until this point, whilst the process has been sped up and decision making aro
 
 ![step_5](images/deliver_step_5.png)
 
-Whilst the process has been improved, there is still a lack of consistency within the environment. To realise the benefits of the automation, it requires that the Production 
+Whilst the process has been improved, there is still a lack of consistency within the environment. To realise the benefits of the automation, it requires that the Live/Production account is activated. At this point there is a high degree of confidence that the way the application performs under test, is exactly the way the application will perform in Production.  
 
