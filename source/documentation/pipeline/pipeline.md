@@ -48,7 +48,30 @@ Comparing the two flow diagrams side by side, demonstrates that there is a signi
 
 The underpinning pre-requisite to achieve all this is a consistent environment, yet this needs to be delivered in a backdrop of running a live service and delivering new features for that service.
 
-Therefore, this is going to require a forked pipeline to exist at least in the interim period, until Production is built from a single source of truth.
+The first task therefore is to build a Husk environment that will ultimately replace the Production environment. For the purposes of clarification this will be referred to as Live/Production (Aws_Account/Environment) Account. Once this is built it will be possible to fork the deployment pipeline to not only deliver changes to the existing environments, but also deliver them to Live/Production
 
+![step_1](images/deliver_step_1.png)
 
+Once this dual deployment has been proven, the focus should then be around enhancing the existing process to move towards the target operation. Intially there should be focus on developing the Minimal Viable Product for the following Test Scenarios
+
+* Live Proving Tests
+* Performance Tests
+* Security Tests
+* Accessibility Tests
+
+![step_2](images/deliver_step_2.png)
+
+Once developed, these executions can be performed on a Nightly basis on branches due to be merged. The output can be used to determine whether the feature is ready in a non functional sense. 
+
+![step_3](images/deliver_step_3.png)
+
+Bringing Step 1 and Step 2 together means it is now possible to produce enough evidence to provide information to CAB such that the approval process can become automated. This is the necessary business process step to move towards full Continuous Delivery
+
+![step_4](images/deliver_step_4.png)
+
+Up until this point, whilst the process has been sped up and decision making around releases has improved, the promotion to the production account still has manual steps in it. The next stage is to take out the manual NFT load test and automate a 6hr soak test overnight. This again reduces the manual stages present in the current pipeline. 
+
+![step_5](images/deliver_step_5.png)
+
+Whilst the process has been improved, there is still a lack of consistency within the environment. To realise the benefits of the automation, it requires that the Production 
 
