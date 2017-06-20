@@ -13,10 +13,10 @@ class TechDocsHTMLRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   end
 
   def table(header, body)
-    %(<div class="table-container">
-      <table>
-        #{header}#{body}
-      </table>
-    </div>)
+    "<div class=\"table-container\">" \
+      "<table>" \
+        "#{header}#{body}" \
+      "</table>" \
+    "</div>"
   end
 end
