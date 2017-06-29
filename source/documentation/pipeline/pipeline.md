@@ -47,9 +47,48 @@ Comparing the two flow diagrams side by side, demonstrates that there is a signi
 
 The underpinning pre-requisite to achieve all this is a consistent environment, yet this needs to be delivered in a backdrop of running a live service and delivering new features for that service.
 
-The first task therefore is to build a Husk environment that will ultimately replace the Production environment. For the purposes of clarification this will be referred to as Live/Production (Aws_Account/Environment) Account. Once this is built it will be possible to fork the deployment pipeline to not only deliver changes to the existing environments, but also deliver them to Live/Production
+### Adjust Development Pipeline
 
-![step_1](images/deliver_step_1.png)
+A new development pipeline has been created, as shown below
+
+![step_1](images/pipeline_dev_mbp.png)
+
+This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (/documentation/pipeline/dev_mbp)
+
+
+The objective is for the live service to operate the same target consistent environment as the one being used by the new development environment. This requires a complete rebuilding of the Production environment, but that is impossible to do whilst supporting feature releases and an existing live service. 
+
+Additionally attempting to replace one of the existing environments in the pipeline with a new consistent environment, would dramatically increase the risk of promotion from that new environment to an older inconsistent environment. 
+
+Therefore there needs to be a forked deployment pipeline, up until a point by which the Production environment can be built in a consistent image and then there will only be a single consistent pipeline. This is show below
+
+![step_2](images/pipeline_forked.png)
+
+The two pipelines will co-exist, up until a point where there is sufficient confidence in the new Live/Prd account that traffic can be switched to it. It is worth stating that until this happens, the full benefit of consistent environments will not be realised.
+
+### Build Live/Production Husk
+
+Now that the existing deployment pipeline has been adjusted. The next step is to build a Husk environment that will ultimately replace the Production environment. For the purposes of clarification this will be referred to as Live/Production (Aws_Account/Environment) Account. Once this is built it will be possible to fork the deployment pipeline to not only deliver changes to the existing environments, but also deliver them to Live/Production
+
+This is covered by the epic https://jira.i-env.net/browse/OPSTEAM-882
+
+The pipeline should also be adjusted at this point, to automatically promote from the Int environment through to the Live/Prd environment too. More detailed information about the promotion process can be found [here] (/documentation/pipeline/promotion_process)
+
+Once we have the forked pipeline, the focus will then need to be on enhancing the pipeline to incorporate as many automated steps as per the target pipeline. Each automated step, removes any manual steps and moves towards a genuine continuous delivery pipeline.
+
+### Performance In Sprint Testing
+
+Currently NFT or more specifically Performance testing is performed in a specific environment post sprint. The major drawback from this approach is that if this identifies a performance problem, the time to resolve the problem usually results in either an acceptance that the service will be ok with the performance degradation or the release gets pushed out. Neither scenario is ideal. If we can identify these situations within a sprint means they can be fixed at source.
+
+The diagram below shows at a resonably high level the process for this particular pipeline. 
+
+![step_2](images/pipeline_performance.png)
+
+The technical detail behind the in-sprint performance test can be found [here] (/documentation/pipeline/performance)
+
+### Live Proving Testing
+
+
 
 Once this dual deployment has been proven, the focus should then be around enhancing the existing process to move towards the target operation. Intially there should be focus on developing the Minimal Viable Product for the following Test Scenarios
 
