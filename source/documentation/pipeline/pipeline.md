@@ -88,28 +88,35 @@ The technical detail behind the in-sprint performance test can be found [here] (
 
 ### Live Proving Testing
 
+At present the proving of the system is performed as a manual task by the business post release. There are issues with this on many levels. It is quite a labour intensive process and requires people to be present post release. The live proving tests do not necessarily get executed prior to the release on a like for like environment. There have been instances where a problem has arisen during live proving, which has not been picked up through the standard testing.
+
+It is important to note here that, there is no intention to add this to the development pipeline. This is so not to overburden the developer pipeline by adding additional time. This is really about having a set of tests that can be executed idempotently on an environment to prove it is fully functional.
+
+Therefore the act of Live-Proving becomes the first test for any environment, downstream from development. As release candidates progress through various assurance gates, the live proving tests will be performed prior to the specific assurance gate testing to validate an environment is functionally consistent. 
+
+The upshot is that the assurance tests, post development, follow a similar pattern as depicted below.
+
+![live_proving](images/live_proving.png)
+
+A pre-requiste for any of those assurance gates is an environment with a successful live proving run executed.
+
+For more detail around what is covered in the live proving stage can be found [here] (/documentation/pipeline/live_proving)
+
+### Vulnerability Testing     
+
+There is currently a lack of an automated process of performing vulnerability scans against the application and infrastructure. There are usually IT Healthchecks performed periodically. These are infrequent and as such are not proactively preventing issues being introduced into the application through feature development.
+
+To get to a position of confidence, it requires vulnerability testing to be part of the automated pipeline. The pipeline is about finding a balance between speed and assurance. Executing vulnerability scanning as part of every build will likely result in a significant amount of 'noise' 
+
+The proposition therefore is for this to be only performed on a release candidate. The act of merging a branch into develop will queue a Vulnerability test. The output of which will inform the CAB decision
+
+More information about vulnerability testing can be found [here] (/documentation/pipeline/vulnerability_testing)
+
+### Accessibility Testing     
+
+Much the same as Vulnerability testing, Accessibility testing is done on an adhoc basis and is not part of the standard pipeline. Adding accessibility checks into the application, should be a pre-requisite for a Continuous Delivery pipeline.
+
+In the same way as Vulnerability testing is performed, this will only be triggered on a release candidate and the output of any Accessibility testing will form part of the CAB decision making.
 
 
-Once this dual deployment has been proven, the focus should then be around enhancing the existing process to move towards the target operation. Intially there should be focus on developing the Minimal Viable Product for the following Test Scenarios
-
-* Live Proving Tests
-* Performance Tests
-* Security Tests
-* Accessibility Tests
-
-![step_2](images/deliver_step_2.png)
-
-Once developed, these executions can be performed on a Nightly basis on branches due to be merged. The output can be used to determine whether the feature is ready in a non functional sense. 
-
-![step_3](images/deliver_step_3.png)
-
-Bringing Step 1 and Step 2 together means it is now possible to produce enough evidence to provide information to CAB such that the approval process can become automated. This is the necessary business process step to move towards full Continuous Delivery
-
-![step_4](images/deliver_step_4.png)
-
-Up until this point, whilst the process has been sped up and decision making around releases has improved, the promotion to the production account still has manual steps in it. The next stage is to take out the manual NFT load test and automate a 6hr soak test overnight. This again reduces the manual stages present in the current pipeline. 
-
-![step_5](images/deliver_step_5.png)
-
-Whilst the process has been improved, there is still a lack of consistency within the environment. To realise the benefits of the automation, it requires that the Live/Production account is activated. At this point there is a high degree of confidence that the way the application performs under test, is exactly the way the application will perform in Production.  
-
+More information about accessibility testing can be found [here] (/documentation/pipeline/accessibility_testing)
