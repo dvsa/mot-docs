@@ -9,7 +9,13 @@ class TechDocsHTMLRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
   end
 
   def image(link, *args)
-    %(<a href="#{link}" target="_blank" rel="noopener noreferrer">#{super}</a>)
+    href = link 
+    if args.length == 2 then
+      image_tag_value = super(link, args[0], args[1])
+      href = /src="([^"]+)/.match(image_tag_value)[1]
+    end 
+    
+    %(<a href="#{href}" target="_blank" rel="noopener noreferrer">#{super}</a>)
   end
 
   def table(header, body)
