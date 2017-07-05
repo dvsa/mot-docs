@@ -51,7 +51,7 @@ The underpinning pre-requisite to achieve all this is a consistent environment, 
 
 A new development pipeline has been created, as shown below
 
-![step_1](images/pipeline_dev_mbp.png)
+![pipe_dev(../images/pipeline_dev_mbp.png)](images/pipeline_dev_mbp.png)
 
 This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (/documentation/pipeline/dev_mbp)
 
