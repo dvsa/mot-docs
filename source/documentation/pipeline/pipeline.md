@@ -68,7 +68,7 @@ Additionally, introducing a new 'consistent' environment into a pipeline of inco
 
 Therefore there needs to be a forked deployment pipeline, up until a point by which the Production environment can be built in a consistent image and then there will only be a single consistent pipeline. This is shown below
 
-![step_2](images/pipeline_forked.png)
+![pipe_forked(../images/pipeline_forked.png)](images/pipeline_forked.png)
 
 The two pipelines will co-exist, up until a point where there is sufficient confidence in the new Live/Prd environment that traffic can be switched to it. It is worth stating that until this happens, the full benefits of consistent environments will not be realised.
 
@@ -78,7 +78,7 @@ Now that the existing deployment pipeline has been adjusted. The next step is to
 
 This is covered by the epic [jira ticket](https://jira.i-env.net/browse/OPSTEAM-882)
 
-The pipeline should also be adjusted at this point, to automatically promote from the Int environment through to the Live/Prd environment too. More detailed information about the promotion process can be found [here] (pipeline#promotion-process)
+The pipeline should also be adjusted at this point, to automatically promote from the Int environment through to the Live/Prd environment too. More detailed information about the promotion process can be found [here] (#promotion-process)
 
 Once we have the forked pipeline, the focus will then need to be on enhancing the pipeline to incorporate as many automated steps as per the target pipeline. Each automated step, removes any manual steps and moves towards a genuine continuous delivery pipeline.
 
@@ -86,11 +86,11 @@ Once we have the forked pipeline, the focus will then need to be on enhancing th
 
 Currently NFT or more specifically Performance testing is performed in a specific environment post sprint. The major drawback from this approach is that if this identifies a performance problem, the time to resolve the problem usually results in either an acceptance that the service will be ok with the performance degradation or the release gets pushed out. Neither scenario is ideal. If we can identify these situations within a sprint means they can be fixed at source.
 
-The diagram below shows at a resonably high level the process for this particular pipeline. 
+The diagram below shows at a reasonably high level the process for this particular pipeline. 
 
-![step_2](images/pipeline_performance.png)
+![pipe_perf(../images/pipeline_performance.png)](images/pipeline_performance.png)
 
-The technical detail behind the in-sprint performance test can be found [here] (/documentation/pipeline/performance)
+The technical detail behind the in-sprint performance test can be found [here] (#performance)
 
 ### Live Proving Testing
 
@@ -102,11 +102,11 @@ Therefore the act of Live-Proving becomes the first test for any environment, do
 
 The upshot is that the assurance tests, post development, follow a similar pattern as depicted below.
 
-![live_proving](images/live_proving.png)
+![live_prov(../images/live_proving.png)](images/live_proving.png)
 
 A pre-requiste for any of those assurance gates is an environment with a successful live proving run executed.
 
-For more detail around what is covered in the live proving stage can be found [here] (/documentation/pipeline/live_proving)
+For more detail around what is covered in the live proving stage can be found [here] (#live-proving)
 
 ### Vulnerability Testing     
 
@@ -116,7 +116,7 @@ To get to a position of confidence, it requires vulnerability testing to be part
 
 The proposition therefore is for this to be only performed on a release candidate. The act of merging a branch into develop will queue a Vulnerability test. The output of which will inform the CAB decision
 
-More information about vulnerability testing can be found [here] (/documentation/pipeline/vulnerability_testing)
+More information about vulnerability testing can be found [here] (#vulnerability-testing)
 
 ### Accessibility Testing     
 
@@ -125,4 +125,4 @@ Much the same as Vulnerability testing, Accessibility testing is done on an adho
 In the same way as Vulnerability testing is performed, this will only be triggered on a release candidate and the output of any Accessibility testing will form part of the CAB decision making.
 
 
-More information about accessibility testing can be found [here] (/documentation/pipeline/accessibility_testing)
+More information about accessibility testing can be found [here] (#accessibility-testing)
