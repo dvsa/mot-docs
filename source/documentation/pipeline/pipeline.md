@@ -59,7 +59,7 @@ A new development pipeline has been created, as shown below
 
 ![pipe_dev(../images/pipeline_dev_mbp.png)](images/pipeline_dev_mbp.png)
 
-This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (pipeline#development-pipeline)
+This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (#development-pipeline)
 
 
 The objective is for the live service to operate the same target consistent environment as the one being used by the new development environment. This requires a complete rebuild of the Production environment, but that is impossible to do whilst supporting feature releases and an existing live service. 
