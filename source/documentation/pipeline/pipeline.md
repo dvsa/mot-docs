@@ -20,7 +20,7 @@ Currently there are designated environments (Continuous Integration, Non Functio
 
 Ultimately, the only long living environment should be the one used for the Live Production service. Beyond that, an environment should exist for a specific short term purpose and once that purpose has expired, the environment should be destroyed. 
 
-Therefore the pre-cursor to improving the pipeline, is defining a single truth of what an 'Environment' is. This is covered in more detail [here] (infrastructure#aws-target-infrastructure)
+Therefore the pre-cursor to improving the pipeline, is defining a single truth of what an 'Environment' is. This is covered in more detail [here] (../infrastructure#aws-target-infrastructure)
 
 Once defined, that definition needs to be delivered into Production. Only at that point can the benefits of Continuous Delivery be realised. This means there are two problems to solve. 
 
