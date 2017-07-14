@@ -35,44 +35,50 @@ It was stated at the outset that it should be possible to deliver software into 
 
 The thrust of the new pipeline is not to necessarily remove steps, as Acceptance, Non Functional Testing, Deployment Testing are valid tests. The intention here is to provide an automated way of executing these stages and a means to execute them a lot earlier in the process. 
 
-An adpatation of the existing merging strategy is to move more towards the Gitflow(https://datasift.github.io/gitflow/IntroducingGitFlow.html) Merging into the 'develop' branch is the trigger for that code to make its way into production. It should only be merged into 'develop' once functional and non-functional testing has been successfully executed. The full flow is defined below.
+An adpatation of the existing merging strategy is to move more towards the [Gitflow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) merging strategy. Merging into the 'develop' branch is the trigger for that code to make its way into production. It should only be merged into 'develop' once functional and non-functional testing has been successfully executed. The full flow is defined below.
 
 ![pipeline_target](images/pipeline_proposed.png)
 
-Whilst this is a relatively long winded process diagram, the green boxes are assumed to be automated. There should be minimal manual intervention. Redudcing the manual input would allow the automated testing to complete during the day, a final Performance Soak Test to be performed overnight and then appear in Production the next day after sign off.
+Whilst this is a relatively long winded process diagram, the green boxes are assumed to be automated. There should be minimal manual intervention. 
+
+The two key significant manual steps are the PO sign off and the Tech Lead merge into Develop. The point at which the feature is merged into Develop the feature will be live that evening, this is the point of no return and all downstream tasks are automated. 
+
+If, for any reason, there is a failure, either the Soak Test or Live Proving, then the entire suit of commits will be reverted. Again an automated process with zero manual intervention.
 
 ## Transition to the New Pipeline
 
-Comparing the two flow diagrams side by side, demonstrates that there is a significant distance to travel to achieve our targetted deployment pipeline. The intention of this section is to identify at a high level the necessary steps to achieve this.
+Comparing the two flow diagrams side by side, demonstrates that there is a significant distance to travel to achieve our targeted deployment pipeline. The intention of this section is to identify at a high level the necessary steps to achieve this.
 
-The underpinning pre-requisite to achieve all this is a consistent environment, yet this needs to be delivered in a backdrop of running a live service and delivering new features for that service.
+This entire improvement is predicated on consistent environments. The only way to confidently push changes from development through to production is by having complete faith that the application with behave the same in each 'environment'. Whilst tempting to start again and rebuild everything and halting all feature changes, this is not reasonable. The challenge is therefore to deliver continuous delivery, whilst maintaining feature releases.  
 
-### Adjust Development Pipeline
+Therefore, the first task to consider is adjusting the pipeline to cater for both these requirements in parallel. 
+
+### Adjust Existing Development Pipeline
 
 A new development pipeline has been created, as shown below
 
 ![pipe_dev(../images/pipeline_dev_mbp.png)](images/pipeline_dev_mbp.png)
 
-This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (/documentation/pipeline/dev_mbp)
+This will deploy our development code into a target consistent environment for each branch and for each commit. More detail about the new development pipeline can be found [here] (pipeline#development-pipeline)
 
 
-The objective is for the live service to operate the same target consistent environment as the one being used by the new development environment. This requires a complete rebuilding of the Production environment, but that is impossible to do whilst supporting feature releases and an existing live service. 
+The objective is for the live service to operate the same target consistent environment as the one being used by the new development environment. This requires a complete rebuild of the Production environment, but that is impossible to do whilst supporting feature releases and an existing live service. 
 
-Additionally attempting to replace one of the existing environments in the pipeline with a new consistent environment, would dramatically increase the risk of promotion from that new environment to an older inconsistent environment. 
+Additionally, introducing a new 'consistent' environment into a pipeline of inconsistent, yet well established environments, would dramatically increase the risk of problems arising during promotion from that new environment to an older inconsistent environment. 
 
-Therefore there needs to be a forked deployment pipeline, up until a point by which the Production environment can be built in a consistent image and then there will only be a single consistent pipeline. This is show below
+Therefore there needs to be a forked deployment pipeline, up until a point by which the Production environment can be built in a consistent image and then there will only be a single consistent pipeline. This is shown below
 
 ![step_2](images/pipeline_forked.png)
 
-The two pipelines will co-exist, up until a point where there is sufficient confidence in the new Live/Prd account that traffic can be switched to it. It is worth stating that until this happens, the full benefit of consistent environments will not be realised.
+The two pipelines will co-exist, up until a point where there is sufficient confidence in the new Live/Prd environment that traffic can be switched to it. It is worth stating that until this happens, the full benefits of consistent environments will not be realised.
 
 ### Build Live/Production Husk
 
 Now that the existing deployment pipeline has been adjusted. The next step is to build a Husk environment that will ultimately replace the Production environment. For the purposes of clarification this will be referred to as Live/Production (Aws_Account/Environment) Account. Once this is built it will be possible to fork the deployment pipeline to not only deliver changes to the existing environments, but also deliver them to Live/Production
 
-This is covered by the epic https://jira.i-env.net/browse/OPSTEAM-882
+This is covered by the epic [jira ticket](https://jira.i-env.net/browse/OPSTEAM-882)
 
-The pipeline should also be adjusted at this point, to automatically promote from the Int environment through to the Live/Prd environment too. More detailed information about the promotion process can be found [here] (/documentation/pipeline/promotion_process)
+The pipeline should also be adjusted at this point, to automatically promote from the Int environment through to the Live/Prd environment too. More detailed information about the promotion process can be found [here] (pipeline#promotion-process)
 
 Once we have the forked pipeline, the focus will then need to be on enhancing the pipeline to incorporate as many automated steps as per the target pipeline. Each automated step, removes any manual steps and moves towards a genuine continuous delivery pipeline.
 
