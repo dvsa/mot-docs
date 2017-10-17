@@ -12,7 +12,7 @@ The MI Reporting database replicates from the MOT read-replica database.
 
 This is depicted in the diagram below:
 
-![Database Diagram](/images/documentation/MTS-Database-Replication.png)
+![Database Diagram](images/MTS-Database-Replication.png)
 
 All of these database instances have a storage footprint of 1500GB (roughly 1.5TB). MOTH, though it occupies the same footprint, does not hold all the data that the other instances hold as it uses the MariaDB (and MySQL) 'Blackhole' storage engine for most of the MOT replica tables in order that they store no data at all.
 
