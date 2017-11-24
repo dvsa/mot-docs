@@ -1,4 +1,18 @@
-node ('builder') {
+properties(
+    [
+        buildDiscarder(
+            logRotator(
+                artifactDaysToKeepStr: '',
+                artifactNumToKeepStr: '',
+                daysToKeepStr: '7',
+                numToKeepStr: ''
+            )
+        ),
+        disableConcurrentBuilds()
+    ]
+)
+
+node ('jenkinsnode') {
    stage 'Checkout'
    git url: 'https://github.com/dvsa/mot-docs.git', branch: env.BRANCH_NAME
 
